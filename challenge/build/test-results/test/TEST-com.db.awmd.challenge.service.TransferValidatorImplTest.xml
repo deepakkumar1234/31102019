@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.db.awmd.challenge.service.TransferValidatorImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-30T10:39:20" hostname="LP-PG00FNAD" time="0.003">
+  <properties/>
+  <testcase name="validate_should_throwException_when_transferBetweenSameAccount" classname="com.db.awmd.challenge.service.TransferValidatorImplTest" time="0.0"/>
+  <testcase name="validate_should_allowValidTransferBetweenAccounts" classname="com.db.awmd.challenge.service.TransferValidatorImplTest" time="0.0"/>
+  <testcase name="validate_should_throwException_when_accountToNotFound" classname="com.db.awmd.challenge.service.TransferValidatorImplTest" time="0.0"/>
+  <testcase name="validate_should_throwException_when_accountFromNotFound" classname="com.db.awmd.challenge.service.TransferValidatorImplTest" time="0.001"/>
+  <testcase name="validate_should_throwException_when_NotEnoughFunds" classname="com.db.awmd.challenge.service.TransferValidatorImplTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

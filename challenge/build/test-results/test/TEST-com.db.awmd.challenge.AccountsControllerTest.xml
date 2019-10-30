@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.db.awmd.challenge.AccountsControllerTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2019-10-30T10:39:17" hostname="LP-PG00FNAD" time="1.402">
+  <properties/>
+  <testcase name="makeTransferEmptyBody" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.844"/>
+  <testcase name="makeTransferAccountToNotFound" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.066"/>
+  <testcase name="makeTransferSameAccount" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.02"/>
+  <testcase name="makeTransferOverdraft" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.032"/>
+  <testcase name="makeTransferAccountFromNotFound" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.026"/>
+  <testcase name="createDuplicateAccount" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.018"/>
+  <testcase name="makeTransferNegativeAmount" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.023"/>
+  <testcase name="getAccount" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.056"/>
+  <testcase name="makeTransferBetweenAccountsPositiveBalanceAfterTransfer" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.047"/>
+  <testcase name="createAccountNegativeBalance" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.013"/>
+  <testcase name="makeTransferNoBody" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.013"/>
+  <testcase name="createAccountEmptyAccountId" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.019"/>
+  <testcase name="createAccountNoBody" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.011"/>
+  <testcase name="makeTransferZeroBalanceAfterTransfer" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.028"/>
+  <testcase name="createAccount" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.125"/>
+  <testcase name="createAccountNoAccountId" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.015"/>
+  <testcase name="createAccountNoBalance" classname="com.db.awmd.challenge.AccountsControllerTest" time="0.012"/>
+  <system-out><![CDATA[16:09:10.310 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.321 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+16:09:10.334 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+16:09:10.361 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.db.awmd.challenge.AccountsControllerTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+16:09:10.385 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.db.awmd.challenge.AccountsControllerTest], using SpringBootContextLoader
+16:09:10.392 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.db.awmd.challenge.AccountsControllerTest]: class path resource [com/db/awmd/challenge/AccountsControllerTest-context.xml] does not exist
+16:09:10.393 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.db.awmd.challenge.AccountsControllerTest]: class path resource [com/db/awmd/challenge/AccountsControllerTestContext.groovy] does not exist
+16:09:10.393 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.db.awmd.challenge.AccountsControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+16:09:10.395 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.db.awmd.challenge.AccountsControllerTest]: AccountsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:09:10.553 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.568 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+16:09:10.571 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+16:09:10.572 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+16:09:10.624 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved classpath location [com/db/awmd/challenge/] to resources [URL [file:/E:/Users/amit.singh/Downloads/dk/challenge/build/classes/java/test/com/db/awmd/challenge/], URL [file:/E:/Users/amit.singh/Downloads/dk/challenge/build/classes/java/main/com/db/awmd/challenge/]]
+16:09:10.624 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\test\com\db\awmd\challenge]
+16:09:10.625 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\test\com\db\awmd\challenge] for files matching pattern [E:/Users/amit.singh/Downloads/dk/challenge/build/classes/java/test/com/db/awmd/challenge/*.class]
+16:09:10.640 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\main\com\db\awmd\challenge]
+16:09:10.640 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\main\com\db\awmd\challenge] for files matching pattern [E:/Users/amit.singh/Downloads/dk/challenge/build/classes/java/main/com/db/awmd/challenge/*.class]
+16:09:10.652 [Test worker] DEBUG org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/db/awmd/challenge/*.class] to resources [file [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\test\com\db\awmd\challenge\AccountsControllerTest.class], file [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\test\com\db\awmd\challenge\AccountsServiceTest.class], file [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\test\com\db\awmd\challenge\AccountsServiceTestConfiguration.class], file [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\main\com\db\awmd\challenge\DevChallengeApplication.class]]
+16:09:10.810 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [E:\Users\amit.singh\Downloads\dk\challenge\build\classes\java\main\com\db\awmd\challenge\DevChallengeApplication.class]
+16:09:10.812 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.db.awmd.challenge.DevChallengeApplication for test class com.db.awmd.challenge.AccountsControllerTest
+16:09:10.818 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.db.awmd.challenge.AccountsControllerTest]: using defaults.
+16:09:10.835 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+16:09:10.854 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+16:09:10.860 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+16:09:10.867 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@47639ae1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@713444d4, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@37ffc65e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@53bc2f58, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@853035c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5b92f466, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1216147c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@20622f89, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@30bb813a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@7cc6628f]
+16:09:10.873 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.874 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.875 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.876 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.884 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@785a1ad1 testClass = AccountsControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@6379ce8c testClass = AccountsControllerTest, locations = '{}', classes = '{class com.db.awmd.challenge.DevChallengeApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@fa1fb94, org.springframework.boot.test.context.SpringBootTestContextCustomizer@7fa3be21, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4b17269f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@72ad1554, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@2431e281], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+16:09:10.885 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:10.885 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.db.awmd.challenge.AccountsControllerTest]
+16:09:11.046 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+16:09:11.046 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+16:09:11.046 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+16:09:11.051 [Test worker] DEBUG org.springframework.core.env.MutablePropertySources - Adding [inline] PropertySource with highest search precedence
+16:09:11.079 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+16:09:11.081 [Test worker] DEBUG org.springframework.core.env.StandardEnvironment - Adding [Inlined Test Properties] PropertySource with highest search precedence
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.4.RELEASE)
+
+2019-10-30 16:09:12.135  INFO 5932 --- [    Test worker] c.d.a.challenge.AccountsControllerTest   : Starting AccountsControllerTest on LP-PG00FNAD with PID 5932 (started by Amit.Singh in E:\Users\amit.singh\Downloads\dk\challenge)
+2019-10-30 16:09:12.137  INFO 5932 --- [    Test worker] c.d.a.challenge.AccountsControllerTest   : No active profile set, falling back to default profiles: default
+2019-10-30 16:09:12.213  INFO 5932 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5169eab9: startup date [Wed Oct 30 16:09:12 IST 2019]; root of context hierarchy
+2019-10-30 16:09:16.271  INFO 5932 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@5169eab9: startup date [Wed Oct 30 16:09:12 IST 2019]; root of context hierarchy
+2019-10-30 16:09:16.441  INFO 5932 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v1/accounts/transfer],methods=[PUT],consumes=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.db.awmd.challenge.web.AccountsController.makeTransfer(com.db.awmd.challenge.domain.Transfer)
+2019-10-30 16:09:16.444  INFO 5932 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v1/accounts],methods=[POST],consumes=[application/json]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.db.awmd.challenge.web.AccountsController.createAccount(com.db.awmd.challenge.domain.Account)
+2019-10-30 16:09:16.444  INFO 5932 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/v1/accounts/{accountId}],methods=[GET]}" onto public com.db.awmd.challenge.domain.Account com.db.awmd.challenge.web.AccountsController.getAccount(java.lang.String)
+2019-10-30 16:09:16.448  INFO 5932 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-10-30 16:09:16.449  INFO 5932 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-10-30 16:09:16.580  INFO 5932 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-10-30 16:09:16.584  INFO 5932 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-10-30 16:09:16.672  INFO 5932 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-10-30 16:09:17.025  INFO 5932 --- [    Test worker] c.d.a.challenge.AccountsControllerTest   : Started AccountsControllerTest in 5.91 seconds (JVM running for 9.346)
+2019-10-30 16:09:17.198  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:17.199  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:17.235  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 33 ms
+2019-10-30 16:09:17.918  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:17.918  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:17.922  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:17.955  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-1, balance=1000.20)
+2019-10-30 16:09:17.975  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Making transfer Transfer(accountFromId=Id-1, accountToId=Id-2, amount=1000)
+2019-10-30 16:09:17.987  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:17.988  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:17.991  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:17.994  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-1, balance=1000)
+2019-10-30 16:09:17.997  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Making transfer Transfer(accountFromId=Id-1, accountToId=Id-1, amount=1000)
+2019-10-30 16:09:18.009  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.009  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.013  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 4 ms
+2019-10-30 16:09:18.023  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-1, balance=20.50)
+2019-10-30 16:09:18.030  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-2, balance=1000)
+2019-10-30 16:09:18.034  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Making transfer Transfer(accountFromId=Id-1, accountToId=Id-2, amount=21)
+2019-10-30 16:09:18.045  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.046  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.050  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.053  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-2, balance=1000)
+2019-10-30 16:09:18.065  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Making transfer Transfer(accountFromId=Id-1, accountToId=Id-2, amount=1000)
+2019-10-30 16:09:18.073  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.074  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.079  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 4 ms
+2019-10-30 16:09:18.083  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-123, balance=1000)
+2019-10-30 16:09:18.087  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-123, balance=1000)
+2019-10-30 16:09:18.092  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.093  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.098  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 4 ms
+2019-10-30 16:09:18.102  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-1, balance=100.50)
+2019-10-30 16:09:18.106  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-2, balance=1000.50)
+2019-10-30 16:09:18.117  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.118  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.121  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.127  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Retrieving account for id Id-1572431958121
+2019-10-30 16:09:18.175  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.176  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.182  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 5 ms
+2019-10-30 16:09:18.189  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-1, balance=5100.21)
+2019-10-30 16:09:18.193  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-2, balance=6000)
+2019-10-30 16:09:18.197  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Making transfer Transfer(accountFromId=Id-1, accountToId=Id-2, amount=5000)
+2019-10-30 16:09:18.209  INFO 5932 --- [    Test worker] c.d.a.c.s.EmailNotificationService       : Sending notification to owner of Id-1: The transfer to the account with ID Id-2 is now complete for the amount of 5000.
+2019-10-30 16:09:18.209  INFO 5932 --- [    Test worker] c.d.a.c.s.EmailNotificationService       : Sending notification to owner of Id-2: The account with ID + Id-1 has transferred 5000 into your account.
+2019-10-30 16:09:18.212  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Retrieving account for id Id-1
+2019-10-30 16:09:18.216  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Retrieving account for id Id-2
+2019-10-30 16:09:18.225  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.225  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.228  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.241  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.242  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.246  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.248  WARN 5932 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<java.lang.Object> com.db.awmd.challenge.web.AccountsController.makeTransfer(com.db.awmd.challenge.domain.Transfer)
+2019-10-30 16:09:18.254  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.254  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.262  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 8 ms
+2019-10-30 16:09:18.273  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.274  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.277  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.279  WARN 5932 --- [    Test worker] .w.s.m.s.DefaultHandlerExceptionResolver : Failed to read HTTP message: org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<java.lang.Object> com.db.awmd.challenge.web.AccountsController.createAccount(com.db.awmd.challenge.domain.Account)
+2019-10-30 16:09:18.286  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.287  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.291  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.295  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-1, balance=2000.20)
+2019-10-30 16:09:18.298  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-2, balance=100)
+2019-10-30 16:09:18.304  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Making transfer Transfer(accountFromId=Id-1, accountToId=Id-2, amount=2000.20)
+2019-10-30 16:09:18.304  INFO 5932 --- [    Test worker] c.d.a.c.s.EmailNotificationService       : Sending notification to owner of Id-1: The transfer to the account with ID Id-2 is now complete for the amount of 2000.20.
+2019-10-30 16:09:18.304  INFO 5932 --- [    Test worker] c.d.a.c.s.EmailNotificationService       : Sending notification to owner of Id-2: The account with ID + Id-1 has transferred 2000.20 into your account.
+2019-10-30 16:09:18.306  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Retrieving account for id Id-1
+2019-10-30 16:09:18.309  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Retrieving account for id Id-2
+2019-10-30 16:09:18.316  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.316  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.319  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 3 ms
+2019-10-30 16:09:18.324  INFO 5932 --- [    Test worker] c.d.a.challenge.web.AccountsController   : Creating account Account(accountId=Id-123, balance=1000)
+2019-10-30 16:09:18.445  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.445  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.450  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 5 ms
+2019-10-30 16:09:18.464  INFO 5932 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-10-30 16:09:18.465  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-10-30 16:09:18.469  INFO 5932 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 4 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
