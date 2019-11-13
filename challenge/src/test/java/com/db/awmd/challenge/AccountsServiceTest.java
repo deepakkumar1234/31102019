@@ -24,17 +24,27 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * The Class AccountsServiceTest.
+ */
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AccountsServiceTest {
 
+    /** The accounts service. */
     @Autowired
     private AccountsService accountsService;
 
+    /** The notification service. */
     @Autowired
     private NotificationService notificationService;
 
+    /**
+     * Adds the account.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addAccount() throws Exception {
         Account account = new Account("Id-123");
@@ -44,6 +54,11 @@ public class AccountsServiceTest {
         assertThat(this.accountsService.getAccount("Id-123")).isEqualTo(account);
     }
 
+    /**
+     * Adds the account fails on duplicate id.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void addAccount_failsOnDuplicateId() throws Exception {
         String uniqueId = "Id-" + System.currentTimeMillis();
@@ -59,6 +74,9 @@ public class AccountsServiceTest {
 
     }
 
+    /**
+     * Make transfer should fail when account does not exist.
+     */
     @Test
     public void makeTransfer_should_fail_when_accountDoesNotExist() {
         final String accountFromId = UUID.randomUUID().toString();
@@ -74,6 +92,9 @@ public class AccountsServiceTest {
         verifyZeroInteractions(notificationService);
     }
 
+    /**
+     * Make transfer should fail when account not enough funds.
+     */
     @Test
     public void makeTransfer_should_fail_when_accountNotEnoughFunds() {
         final String accountFromId = UUID.randomUUID().toString();
@@ -90,6 +111,9 @@ public class AccountsServiceTest {
         verifyZeroInteractions(notificationService);
     }
 
+    /**
+     * Make transfer should transfer funds.
+     */
     @Test
     public void makeTransfer_should_transferFunds() {
         final String accountFromId = UUID.randomUUID().toString();
@@ -110,6 +134,9 @@ public class AccountsServiceTest {
         verifyNotifications(accountFrom, accountTo, transfer);
     }
 
+    /**
+     * Make transfer should transfer funds when balance just enough.
+     */
     @Test
     public void makeTransfer_should_transferFunds_when_balanceJustEnough() {
 
@@ -131,6 +158,13 @@ public class AccountsServiceTest {
         verifyNotifications(accountFrom, accountTo, transfer);
     }
 
+    /**
+     * Verify notifications.
+     *
+     * @param accountFrom the account from
+     * @param accountTo the account to
+     * @param transfer the transfer
+     */
     private void verifyNotifications(final Account accountFrom, final Account accountTo, final Transfer transfer) {
         verify(notificationService, Mockito.times(1)).notifyAboutTransfer(accountFrom, "The transfer to the account with ID " + accountTo.getAccountId() + " is now complete for the amount of " + transfer.getAmount() + ".");
         verify(notificationService, Mockito.times(1)).notifyAboutTransfer(accountTo, "The account with ID + " + accountFrom.getAccountId() + " has transferred " + transfer.getAmount() + " into your account.");

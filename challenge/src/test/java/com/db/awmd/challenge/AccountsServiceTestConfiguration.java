@@ -7,10 +7,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
+/**
+ * The Class AccountsServiceTestConfiguration.
+ */
 @Profile("test")
 @Configuration
 public class AccountsServiceTestConfiguration {
 
+    /**
+     * Notification service.
+     *
+     * @return the notification service
+     */
     @Bean
     @Primary
     public NotificationService notificationService(){

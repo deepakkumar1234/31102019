@@ -23,19 +23,28 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * The Class AccountsControllerTest.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @WebAppConfiguration
 public class AccountsControllerTest {
 
+  /** The mock mvc. */
   private MockMvc mockMvc;
 
+  /** The accounts service. */
   @Autowired
   private AccountsService accountsService;
 
+  /** The web application context. */
   @Autowired
   private WebApplicationContext webApplicationContext;
 
+  /**
+   * Prepare mock mvc.
+   */
   @Before
   public void prepareMockMvc() {
     this.mockMvc = webAppContextSetup(this.webApplicationContext).build();
@@ -44,6 +53,11 @@ public class AccountsControllerTest {
     accountsService.getAccountsRepository().clearAccounts();
   }
 
+  /**
+   * Creates the account.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createAccount() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-123\",\"balance\":1000}").andExpect(status().isCreated());
@@ -53,6 +67,11 @@ public class AccountsControllerTest {
     assertThat(account.getBalance()).isEqualByComparingTo("1000");
   }
 
+  /**
+   * Creates the duplicate account.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createDuplicateAccount() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-123\",\"balance\":1000}").andExpect(status().isCreated());
@@ -60,39 +79,77 @@ public class AccountsControllerTest {
     createAccountWithContent("{\"accountId\":\"Id-123\",\"balance\":1000}").andExpect(status().isBadRequest());
   }
 
+  /**
+   * Creates the account no account id.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createAccountNoAccountId() throws Exception {
     createAccountWithContent("{\"balance\":1000}")
             .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Creates the account no balance.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createAccountNoBalance() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-123\"}").andExpect(status().isBadRequest());
   }
 
+  /**
+   * Creates the account no body.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createAccountNoBody() throws Exception {
     this.mockMvc.perform(post("/v1/accounts").contentType(MediaType.APPLICATION_JSON))
       .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Creates the account negative balance.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createAccountNegativeBalance() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-123\",\"balance\":-1000}")
             .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Creates the account empty account id.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void createAccountEmptyAccountId() throws Exception {
     createAccountWithContent("{\"accountId\":\"\",\"balance\":1000}").andExpect(status().isBadRequest());
   }
 
+  /**
+   * Creates the account with content.
+   *
+   * @param content the content
+   * @return the result actions
+   * @throws Exception the exception
+   */
   private ResultActions createAccountWithContent(final String content) throws Exception {
     return this.mockMvc.perform(post("/v1/accounts").contentType(MediaType.APPLICATION_JSON)
             .content(content));
   }
 
+  /**
+   * Gets the account.
+   *
+   * @return the account
+   * @throws Exception the exception
+   */
   @Test
   public void getAccount() throws Exception {
     String uniqueAccountId = "Id-" + System.currentTimeMillis();
@@ -101,6 +158,13 @@ public class AccountsControllerTest {
     verifyAccountBalance(uniqueAccountId, new BigDecimal("123.45"));
   }
 
+  /**
+   * Verify account balance.
+   *
+   * @param accountId the account id
+   * @param balance the balance
+   * @throws Exception the exception
+   */
   private void verifyAccountBalance(final String accountId, final BigDecimal balance) throws Exception {
     this.mockMvc.perform(get("/v1/accounts/" + accountId))
             .andExpect(status().isOk())
@@ -108,6 +172,11 @@ public class AccountsControllerTest {
                     content().string("{\"accountId\":\"" + accountId + "\",\"balance\":"+balance+"}"));
   }
 
+  /**
+   * Make transfer account from not found.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferAccountFromNotFound() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-2\",\"balance\":1000}").andExpect(status().isCreated());
@@ -116,6 +185,11 @@ public class AccountsControllerTest {
             .andExpect(status().isNotFound());
   }
 
+  /**
+   * Make transfer account to not found.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferAccountToNotFound() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-1\",\"balance\":1000.20}").andExpect(status().isCreated());
@@ -124,6 +198,13 @@ public class AccountsControllerTest {
             .andExpect(status().isNotFound());
   }
 
+  /**
+   * Make transfer with content.
+   *
+   * @param content the content
+   * @return the result actions
+   * @throws Exception the exception
+   */
   private ResultActions makeTransferWithContent(String content) throws Exception {
     return this.mockMvc.perform(
             put("/v1/accounts/transfer")
@@ -131,6 +212,11 @@ public class AccountsControllerTest {
                     .content(content));
   }
 
+  /**
+   * Make transfer same account.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferSameAccount() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-1\",\"balance\":1000}").andExpect(status().isCreated());
@@ -138,6 +224,11 @@ public class AccountsControllerTest {
             .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Make transfer overdraft.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferOverdraft() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-1\",\"balance\":20.50}").andExpect(status().isCreated());
@@ -147,6 +238,11 @@ public class AccountsControllerTest {
             .andExpect(status().isUnprocessableEntity());
   }
 
+  /**
+   * Make transfer negative amount.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferNegativeAmount() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-1\",\"balance\":100.50}").andExpect(status().isCreated());
@@ -156,18 +252,33 @@ public class AccountsControllerTest {
             .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Make transfer empty body.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferEmptyBody() throws Exception {
     makeTransferWithContent("{}")
             .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Make transfer no body.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferNoBody() throws Exception {
     this.mockMvc.perform(put("/v1/accounts/transfer").contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isBadRequest());
   }
 
+  /**
+   * Make transfer zero balance after transfer.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferZeroBalanceAfterTransfer() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-1\",\"balance\":2000.20}").andExpect(status().isCreated());
@@ -180,6 +291,11 @@ public class AccountsControllerTest {
     verifyAccountBalance("Id-2", new BigDecimal("2100.20"));
   }
 
+  /**
+   * Make transfer between accounts positive balance after transfer.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void makeTransferBetweenAccountsPositiveBalanceAfterTransfer() throws Exception {
     createAccountWithContent("{\"accountId\":\"Id-1\",\"balance\":5100.21}").andExpect(status().isCreated());

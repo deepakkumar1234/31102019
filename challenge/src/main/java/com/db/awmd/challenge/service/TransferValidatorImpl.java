@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+/**
+ * The Class TransferValidatorImpl.
+ */
 @Component
 public class TransferValidatorImpl implements TransferValidator {
 
@@ -19,9 +22,9 @@ public class TransferValidatorImpl implements TransferValidator {
      * @param currAccountFrom The existing source account as found in the repository
      * @param currAccountTo The existing destination account as found in the repository
      * @param transfer The transfer object as requested
-     * @throws AccountNotFoundException
-     * @throws NotEnoughFundsException
-     * @throws TransferBetweenSameAccountException
+     * @throws AccountNotFoundException the account not found exception
+     * @throws NotEnoughFundsException the not enough funds exception
+     * @throws TransferBetweenSameAccountException the transfer between same account exception
      */
     public void validate(final Account currAccountFrom, final Account currAccountTo, final Transfer transfer)
             throws AccountNotFoundException, NotEnoughFundsException, TransferBetweenSameAccountException{
@@ -43,11 +46,24 @@ public class TransferValidatorImpl implements TransferValidator {
         }
     }
 
+    /**
+     * Same account.
+     *
+     * @param transfer the transfer
+     * @return true, if successful
+     */
     private boolean sameAccount(final Transfer transfer) {
         return transfer.getAccountFromId().equals(transfer.getAccountToId());
     }
 
 
+    /**
+     * Enough funds.
+     *
+     * @param account the account
+     * @param amount the amount
+     * @return true, if successful
+     */
     private boolean enoughFunds(final Account account, final BigDecimal amount) {
         return account.getBalance().subtract(amount).compareTo(BigDecimal.ZERO) >= 0;
     }

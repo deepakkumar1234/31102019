@@ -14,19 +14,32 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Data
 public class Account {
 
+    /** The account id. */
     @NotNull
     @NotEmpty
     private final String accountId;
 
+    /** The balance. */
     @NotNull
     @Min(value = 0, message = "Initial balance must be positive.")
     private BigDecimal balance;
 
+    /**
+     * Instantiates a new account.
+     *
+     * @param accountId the account id
+     */
     public Account(String accountId) {
         this.accountId = accountId;
         this.balance = BigDecimal.ZERO;
     }
 
+    /**
+     * Instantiates a new account.
+     *
+     * @param accountId the account id
+     * @param balance the balance
+     */
     @JsonCreator
     public Account(@JsonProperty("accountId") String accountId,
                    @JsonProperty("balance") BigDecimal balance) {
